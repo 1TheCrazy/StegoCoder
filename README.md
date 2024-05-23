@@ -1,2 +1,6 @@
 # StenoCoder
-A Stenography En- and Decoer for .Net
+A Stenography En- and Decoder for .Net
+
+## [NuGet]()
+
+## [Cmd]()
