@@ -24,7 +24,7 @@ __How to install:__ (Windows)
 ### How it works
 This package uses the most common steganography tehnique: it manipulates the LSB (Least Significant Bit) of every pixels color bytes (RGBA). It converts a string of characters to bits according to the ASCII standart and loops through the images bytes, manipulating the LSB as needed.
 When decoding, it reads the LSB of the image bytes, converting them back to a string.
-At the end of every string encoded in an image, the program appends 25 in binary (00011001) to the end of every string encoded, signaling the End of Medium and when the program needs to stop parsing from bits to strings.
+At the end of every string encoded in an image, the program appends 25 in binary (00011001), signaling the End of Medium and when the program needs to stop parsing from bits to strings.
 
 ### Packages used
 This program heavily uses ImageSharp by SixLabors, expecially when loading and looping through the images.
