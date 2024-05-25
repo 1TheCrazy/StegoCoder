@@ -1,5 +1,5 @@
 # StenoCoder
-A Steganography En- and Decoder for .Net
+A Steganography En- and Decoder for .Net and Cmd
 
 ## [NuGet]()
 
