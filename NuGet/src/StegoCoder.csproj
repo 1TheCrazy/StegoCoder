@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<IncludeSymbols>true</IncludeSymbols>
+	<IncludeSource>true</IncludeSource>
+    <Title>StegoCoder</Title>
+    <Authors>1TheCrazy</Authors>
+    <Description>A Steganography En- and Decoder for .Net</Description>
+    <PackageProjectUrl>https://github.com/1TheCrazy/StegoCoder</PackageProjectUrl>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.4" />
+  </ItemGroup>
+
+</Project>
