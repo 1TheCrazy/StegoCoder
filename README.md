@@ -18,7 +18,7 @@ __How to install:__ (Visual Studio)
 __How to install:__ (Windows)
 1. Download the [cmd.zip](https://github.com/1TheCrazy/StegoCoder/blob/main/CMD/cmd.zip)-file
 2. Extract the cmd folder
-3. Run the *install_cmd.bat*-file WITHOUT admin privileges
+3. Run the *install_cmd.bat*-file (grant admin privileges if asked)
 4. Run *stegocoder* in a new CMD window
 
 ### How it works
