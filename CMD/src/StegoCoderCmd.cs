@@ -61,8 +61,8 @@ class StegoCoderCmd()
         else
         {
             Console.WriteLine($"Please provide valid arguments:\n" +
-                $"stenocoder decode filePath ---> Decodes an image that was encoded with the same method this tool uses.\n" +
-                $"stenocoder encode filePath string ---> Encodes an image with the provided string.\n" +
+                $"stegocoder decode filePath ---> Decodes an image that was encoded with the same method this tool uses.\n" +
+                $"stegocoder encode filePath string ---> Encodes an image with the provided string.\n" +
                 $"Visit https://github.com/1TheCrazy/StegoCoder if you have questions or issues using this package!");
         }
     }
