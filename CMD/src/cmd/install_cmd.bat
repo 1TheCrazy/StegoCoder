@@ -1,4 +1,10 @@
 @echo off
+choice /c yn /m "Do you want to install StegoCoder cmd-command"
+
+if errorlevel 2 (
+pause 
+exit /b 0
+)
 setlocal enabledelayedexpansion
 
 set "ALIAS_FILE=stegocoder.bat"
@@ -6,14 +12,16 @@ set "EXE_FILE=stegocodercmd.exe"
 set "TARGET_PATH=C:\Scripts\1TheCrazy\StegoCoder"
 set "PATTERN=stegocodercmd-v*"
 
+set "CURRENT_DIR=%~dp0"
+set "FILE_DIR=%CURRENT_DIR%Files\"
+set "SOURCE_PATH=%FILE_DIR%%ALIAS_FILE%"
+
 REM Find the executable file
-for %%f in (*.exe) do (
+for /r "%FILE_DIR%" %%f in (*.exe) do (
     set "EXE_FILE=%%f"
 )
 
-set "CURRENT_DIR=%~dp0"
-set "SOURCE_PATH=%CURRENT_DIR%%ALIAS_FILE%"
-set "EXE_PATH=%CURRENT_DIR%%EXE_FILE%"
+set "EXE_PATH=%EXE_FILE%"
 
 REM Extract the version from the executable file name
 for %%F in ("%EXE_PATH%") do (
@@ -24,7 +32,7 @@ for %%F in ("%EXE_PATH%") do (
 
 REM Check if the source files exist
 if not exist "%SOURCE_PATH%" (
-    echo The folder does not contain all contents necessary for the installation. Please download a new copy from https://github.com/1TheCrazy/StegoCoder.
+    echo The folder does not contain all contents necessary for the installation. Please download a new copy from https://github.com/1TheCrazy/StegoCoder.1
     pause
     exit /b 1
 )
@@ -36,6 +44,7 @@ if not exist "%EXE_PATH%" (
 )
 
 REM Check if the target directory exists
+echo Checking target dir...
 if exist "%TARGET_PATH%" (
 
     for %%f in ("%TARGET_PATH%\%PATTERN%") do (
@@ -59,29 +68,33 @@ if exist "%TARGET_PATH%" (
     mkdir "%TARGET_PATH%"
 )
 
-copy "%SOURCE_PATH%" "%TARGET_PATH%" /Y
-copy "%EXE_PATH%" "%TARGET_PATH%" /Y
+echo Copying Files...
+
+copy /Y "%SOURCE_PATH%" "%TARGET_PATH%" >nul
+copy /Y "%EXE_PATH%" "%TARGET_PATH%" >nul
 
 if errorlevel 1 (
-    echo Failed to copy the alias batch file. The CMD installation was not successful.
+    echo Failed to copy the alias batch file.
     pause
     exit /b 1
 )
 
 REM Include in path...
+echo Making PATH entry...
 set "currentPath=%PATH%"
 echo %currentPath% | findstr /i /c:"%TARGET_PATH%" >nul
 if %errorlevel%==0 (
     echo The directory %TARGET_PATH% is already in the PATH.
 ) else (
-    call install_path.bat
-    echo The directory %TARGET_PATH% has been added to the PATH.
+    call "%FILE_DIR%install_path.bat" >nul
+    echo The directory %TARGET_PATH% has been added to the PATH. Please RESTART your computer for the changes to take effect.
 )
 
 echo Installation of the CMD-Command was successful! You can now close this window...
+echo Please RESTART your pc in order to use the command
 echo https://github.com/1TheCrazy/StegoCoder
-pause
 
+pause
 exit /b 0
 
 REM ------------------------------ Compare Function ------------------------------
